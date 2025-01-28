@@ -29,6 +29,11 @@ print(df.head())
 t = df['attack']
 X = df.drop(['attack'],axis=1)
 
+print(df.isnull().sum())
+print("DUPLICATED VALUES ",df.duplicated().sum())
+#remove duplicared rows values
+df = df.drop_duplicates()
+
 feature_names = X.columns.tolist()
 class_names = ['Botnet', 'Brute-force','DDoS attack', 'DoS attack','Web attack']
 
